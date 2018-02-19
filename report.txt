@@ -1,0 +1,58 @@
+Assignment Report
+Assignment name is: Wildfire
+My name is: 			<<<ENTER YOUR NAME>>>
+My login ID is:			<<<ENTER YOUR CS LOGIN ID>>>
+
+[insert your answers after the question and add more lines as needed.]
+
+	[MAKE ANSWERS SHORT AND TO THE POINT. USE 'BULLET POINT' OUTLINES.]
+
+	[USE PLAIN TEXT]
+
+
+============= PROGRAM STATUS ==============
+
+What is the status of the program?
+
+[e.g. does it run right or crash, infinite loop when it should not, other?]
+
+	[you will lose fewer points if 
+	 you clearly describe the problems
+	 and your work to solve those problems.]
+
+
+
+
+============= PROGRAM USAGE, OPTIONS AND Extra Credit ==
+
+If you implemented extra credit or special, describe your results here.
+
+[see the writeup for extra credit requirements if this applies to your work.]
+
+
+
+============= GENERAL PROJECT FEEDBACK ==============
+
+What did I learn?
+
+
+
+
+What was easy about this assignment?
+
+
+
+
+What gave you problems or troubles?
+
+
+
+
+What would you like the instructor to do to improve this assignment?
+
+
+
+
+What would you have liked to do in this assignment?
+
+
