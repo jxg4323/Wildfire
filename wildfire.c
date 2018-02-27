@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <string.h>
 
 struct trees{
 	int count;
@@ -16,15 +17,21 @@ static void usage(){
 	exit(-1);
 }
 
-void print(int size,char forest[][size]){
-	for(int i = 0; i < size; i++){
-		for(int j =0; j < size;j++)
-			printf("%c",forest[i][j]);
-		printf("\n");
+void printN(int num,int size,char forest[][size]){
+	int i = 0;
+	while(i < num){
+		for(int i = 0; i < size; i++){
+			for(int j =0; j < size;j++)
+				printf("%c",forest[i][j]);
+			printf("\n");
+		}
+		num+=1;
 	}
 }
 
-void spread(struct trees *specs,int row,int col,int size,char forest[][size]){
+int spread(struct trees *specs,int row,int col,int size,char forest[][size]){
+	
+	int result = -1;
 	double percent = 0;
 	int neighborsBurn = 0;
 	int neighbors = 0;
@@ -68,40 +75,40 @@ void spread(struct trees *specs,int row,int col,int size,char forest[][size]){
 	}
 	
 	double pnBurn = (neighbors > 0) ? (double)neighborsBurn/(neighbors+neighborsBurn) : 0;
-	//printf("fores[i][j]: %c\n",forest[row][col]);
-	//printf("neighbors: %d, neighborsBurn: %d, pnBurn: %f\n",neighbors,neighborsBurn,pnBurn);
+
 	if(pnBurn > 0.25){
-		srand(time(NULL));
 		percent = (double)rand()/RAND_MAX;
-		printf("percent: %f\n",percent);
-		if(percent < ((double)specs->pFire/100) && forest[row][col] == 'Y'){
-				forest[row][col] = '.';
+		if(percent < ((double)specs->pFire/100)){
+			result = 0;		
 		}
 	}
-	/*printf("----------------spread function--------------\n");
-	for(int i = 0; i < size; i++){
-		for(int j =0; j < size;j++)
-			printf("%c",forest[i][j]);
-		printf("\n");
-	}
-	printf("------------------------------\n");*/
+	return result;
 }
 
 void applySpread(struct trees *specs,int size,char forest[][size]){
+	char forestCopy[size][size];
+	memcpy(forestCopy,forest,sizeof(char)*size*size);
+
 	for(int i = 0; i < size;i++){
 		for(int j = 0; j < size;j++){
-			if(forest[i][j] == 'Y'){
-				spread(specs,i,j,size,forest);
+			if(spread(specs,i,j,size,forestCopy) == 0){
+				switch(forest[i][j]){
+					case 'Y':
+						forest[i][j] = '.';
+						break;
+					case '.':
+						forest[i][j] = ' ';
+						break;
+				}
 			}
 		}
 	}
-	printf("----------------algorithm spread function--------------\n");
+	
 	for(int i = 0; i < size; i++){
 		for(int j =0; j < size;j++)
 			printf("%c",forest[i][j]);
 		printf("\n");
 	}
-	printf("------------------------------\n");
 }
 
 void randomFill(struct trees *specs,int size,char forest[][size]){
@@ -178,9 +185,8 @@ void commandArgs(struct trees *forest, int argc,char** argv){
 }
 
 int main(int argc,char** argv){
-	int temp = 0;
-	int flag = 0;
-	int row,col,count,size,pFire,pBurn,td;
+	int count = 0;
+	int row,col;
 	struct trees forestSpecs;
 	commandArgs(&forestSpecs,argc,argv);
 	row = forestSpecs.size;
@@ -189,9 +195,9 @@ int main(int argc,char** argv){
 	printf("td: %d\n",forestSpecs.treeDensity);
 	randomFill(&forestSpecs,row,forest);
 	printf("generation 0\n");	
-	while(temp < 1){
+	while(count < 1){
 		applySpread(&forestSpecs,row,forest);
 		temp++;
-		printf("generation %d\n",temp+1);
+		printf("generation %d\n",count);
 	}		
 }
