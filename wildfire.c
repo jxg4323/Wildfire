@@ -1,3 +1,4 @@
+#define _BSD_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -11,6 +12,8 @@ struct trees{
 	int treeDensity;
 	int pFire;
 	int pBurn;
+	int windSpeed;
+	char windDirection;
 };
 
 static void usage(){
@@ -192,14 +195,19 @@ void commandArgs(struct trees *forest, int argc,char** argv){
 	}
 	if(forest->count < 0)
 		usage();
+		printf("-pN was negative\n");
 	if(forest->size < 5 || forest->size > 40)
 		usage();
+		printf("The size (X) must be an integer in [5...40].\n");
 	if(forest->pFire < 0 || forest->pFire > 100)
 		usage(); 
+		printf("The probability (X) must be an integer in [5...40].\n");
 	if(forest->treeDensity < 0 || forest->treeDensity > 100)
 		usage();
+		printf("The density (X) must be an integer in [5...40].\n");
 	if(forest->pBurn < 0 || forest->pBurn > 100)
 		usage();
+		printf("The proportion (X) must be an integer in [5...40].\n");
 }
 
 int checkForFires(int size,char forest[][size]){
@@ -217,13 +225,16 @@ void simulation(struct trees *specs,int size,char forest[][size]){
 	if(specs->count == 0){
 		//run continuosly until all fires are out
 		int num = 0;
+		clear();
+		printf("\ngeneration: %d\n",num);	
 		while(checkForFires(size,forest) == 0){
-			clear();
 			applySpread(specs,size,forest);
 			printf("\ngeneration: %d\n",num+=1);
+			usleep(81000);
 		}
 	}else{
 		int count = 0;
+		printf("\ngeneration: %d\n",count);
 		while(count < specs->count){
 			applySpread(specs,size,forest);
 			count+=1;
@@ -242,6 +253,5 @@ int main(int argc,char** argv){
 	char forest[row][col];
 	//printf("td: %d\n",forestSpecs.treeDensity);
 	randomFill(&forestSpecs,row,forest);
-	printf("generation: 0\n");	
 	simulation(&forestSpecs,row,forest);
 }
