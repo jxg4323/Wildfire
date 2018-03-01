@@ -1,7 +1,7 @@
 Assignment Report
 Assignment name is: Wildfire
-My name is: 			<<<ENTER YOUR NAME>>>
-My login ID is:			<<<ENTER YOUR CS LOGIN ID>>>
+My name is: 			<<<James Green>>>
+My login ID is:			<<<jxg4323>>>
 
 [insert your answers after the question and add more lines as needed.]
 
@@ -20,7 +20,7 @@ What is the status of the program?
 	 you clearly describe the problems
 	 and your work to solve those problems.]
 
-
+	My projgram runs correclty and implements the wind direction and wind speed.
 
 
 ============= PROGRAM USAGE, OPTIONS AND Extra Credit ==
@@ -29,30 +29,33 @@ If you implemented extra credit or special, describe your results here.
 
 [see the writeup for extra credit requirements if this applies to your work.]
 
-
+	My results for the wind speed and direction were the greater the wind speed the 
+	more likely it was that tree burned so as a result the genreations of trees decreased
+	for all cases when wind was applied.
 
 ============= GENERAL PROJECT FEEDBACK ==============
 
 What did I learn?
 
-
+I learned how to pass a struct pointer to functions and how to use memcpy to copy arrays.
 
 
 What was easy about this assignment?
 
-
+The assignment itself was fairly easy since it was an elaboration on hw3.
 
 
 What gave you problems or troubles?
 
-
+The only problem I had was using getopt such that it only took numerical arguments.
+So instead I created a function to grab the numbers and implement the rules of the input.
 
 
 What would you like the instructor to do to improve this assignment?
 
-
+Potentially make the wind speed and wind direction a requirement.
 
 
 What would you have liked to do in this assignment?
 
-
+Dynamic allocation
