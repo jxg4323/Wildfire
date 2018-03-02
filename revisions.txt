@@ -1,0 +1,71 @@
+commit 6cb4429d4bb77a7c2c47ad70fa6bb5b28f548573
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Thu Mar 1 20:01:10 2018 -0500
+
+    Making sure all files are committed
+
+commit 362b2c2096620a4ab3d23c7053bda5aa5c484865
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Thu Mar 1 20:00:49 2018 -0500
+
+    Finished with all extra credit and project
+
+commit 47f6266644c6aed54f695d66964224ba964864e8
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Thu Mar 1 18:38:35 2018 -0500
+
+    Experiment one for bash done
+
+commit d88a6c2ab6f5a9a801e05ac048e6eba35159be9f
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Thu Mar 1 18:37:51 2018 -0500
+
+    Finished the wind implementation working on tha bash script
+
+commit 8335bbfef0e7c500970c3fa36d21920247719393
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Tue Feb 27 13:27:25 2018 -0500
+
+    The project is complete without extra credit
+
+commit fd0d4ce05b6ccdef95ce361d654a667d4813b388
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Tue Feb 27 12:52:48 2018 -0500
+
+    Everything is coded, but I am having an issue with display.h
+
+commit be3f16bd7eaffcc9d41aa4e096f0776dd5735d8a
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Tue Feb 27 12:08:24 2018 -0500
+
+    Basic functionality working, need to implement the cursor output and simulation loop
+
+commit 3cf8909892fec42462966cd2b5374480ce132383
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Mon Feb 26 19:13:07 2018 -0500
+
+    testing
+
+commit 0c36f7297a9a81d099b1b0541fcf53f6373786a6
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Mon Feb 26 19:12:48 2018 -0500
+
+    still testing
+
+commit 513a01071fb49c83797e0c08a12730ae236464a6
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Sat Feb 24 11:15:48 2018 -0500
+
+    unimportant commit
+
+commit 5613c3bccab29c92b1752f351582fb2ccc829886
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Sat Feb 24 11:13:50 2018 -0500
+
+    Got getopt to retrieve my commands
+
+commit c707f4b1540201d772ab4b2b28871826fddbe847
+Author: James  Green <jxg4323@cs.rit.edu>
+Date:   Mon Feb 19 13:24:03 2018 -0500
+
+    Just Starting

@@ -1,37 +1,55 @@
-Y_ YY
- _Y__
-Y __Y
-__Y__
-YYYY_
+ *Y Y
+* *YY
+*YYYY
+*Y*Y*
+Y****
 
 generation: 0
-_  YY
-  Y__
-_   _
-_ Y_ 
-__Y__
+ _* Y
+* _*Y
+***YY
+*Y_*_
+*____
 generation: 1
-_  YY
-  _ _
-     
-  _  
-  _  
+ __ *
+_ __*
+***YY
+**___
+*____
 generation: 2
-   _Y
-    _
-     
-  _  
-     
+ __ *
+_ ___
+*__YY
+**___
+*____
 generation: 3
-    Y
-     
-     
-  _  
-     
+ __ *
+_ ___
+___YY
+*____
+_____
 generation: 4
-    Y
-     
-     
-     
-     
+ __ _
+_ ___
+___YY
+*____
+_____
 generation: 5
+ __ _
+_ ___
+___YY
+*____
+_____
+generation: 6
+ __ _
+_ ___
+___YY
+*____
+_____
+generation: 7
+ __ _
+_ ___
+___YY
+_____
+_____
+generation: 8
