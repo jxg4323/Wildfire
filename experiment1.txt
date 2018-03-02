@@ -1,0 +1,1 @@
+usage: wildfire [loop count] [size] [fireCatchProb] [density] [proporition burning] [windSpeed] [windDirection]

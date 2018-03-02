@@ -1,0 +1,37 @@
+Y_ YY
+ _Y__
+Y __Y
+__Y__
+YYYY_
+
+generation: 0
+_  YY
+  Y__
+_   _
+_ Y_ 
+__Y__
+generation: 1
+_  YY
+  _ _
+     
+  _  
+  _  
+generation: 2
+   _Y
+    _
+     
+  _  
+     
+generation: 3
+    Y
+     
+     
+  _  
+     
+generation: 4
+    Y
+     
+     
+     
+     
+generation: 5
