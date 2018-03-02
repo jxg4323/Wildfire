@@ -17,7 +17,7 @@ struct trees{
 };
 
 static void usage(){
-	fprintf( stderr, "usage: wildfire [loop count] [size] [fireCatchProb] [density] [proporition burning] [windSpeed] [windDirection]\n" );
+	fprintf(stderr, "usage: wildfire [loop count] [size] [fireCatchProb] [density] [proporition burning] [windSpeed] [windDirection]\n" );
 	exit(-1);
 }
 
@@ -79,12 +79,12 @@ int spread(struct trees *specs,int row,int col,int size,char forest[][size]){
 		neighbors+=1;
 	}
 
-	if(forest[i-1][j-1] == '.' && i-1 > 0 && j-1 > 0 ){
+	if(forest[i-1][j-1] == '_' && i-1 > 0 && j-1 > 0 ){
 		neighborsBurn+=1;
-	}else if(forest[i][j-1] == '.' && j-1 > 0){//wind coming from the west
+	}else if(forest[i][j-1] == '_' && j-1 > 0){//wind coming from the west
 		if(direction == 'W'){
 			for(int k = 0; k < speed && (j-speed) > size -1;k++){
-				if(forest[i][j-speed] == '.'){
+				if(forest[i][j-speed] == '_'){
 					neighborsBurn+=1;
 					windN += 1;
 				}
@@ -92,12 +92,12 @@ int spread(struct trees *specs,int row,int col,int size,char forest[][size]){
 			flag = 1;
 		}
 		neighborsBurn+=1;
-	}else if(forest[i+1][j-1] == '.' && i+1 < size-1 && j-1 > 0){
+	}else if(forest[i+1][j-1] == '_' && i+1 < size-1 && j-1 > 0){
 		neighborsBurn+=1;
-	}else if(forest[i-1][j] == '.' && i-1 > 0){//wind coming from the north
+	}else if(forest[i-1][j] == '_' && i-1 > 0){//wind coming from the north
 		if(direction == 'N'){
 			for(int k = 0; k < speed && (i-speed) > size -1;k++){
-				if(forest[i][j-speed] == '.'){
+				if(forest[i][j-speed] == '_'){
 					neighborsBurn+=1;
 					windN += 1;
 				}
@@ -105,12 +105,12 @@ int spread(struct trees *specs,int row,int col,int size,char forest[][size]){
 			flag = 1;
 		}
 		neighborsBurn+=1;
-	}else if(forest[i-1][j+1] == '.' && i-1 > 0 && j+1 < size-1){
+	}else if(forest[i-1][j+1] == '_' && i-1 > 0 && j+1 < size-1){
 		neighborsBurn+=1;
-	}else if(forest[i][j+1] == '.' && j+1 < size-1){//wind coming from the south
+	}else if(forest[i][j+1] == '_' && j+1 < size-1){//wind coming from the south
 		if(direction == 'S'){
 			for(int k = 0; k < speed && (j+speed) > size -1;k++){
-				if(forest[i][j-speed] == '.'){
+				if(forest[i][j-speed] == '_'){
 					neighborsBurn+=1;
 					windN += 1;
 				}
@@ -118,12 +118,12 @@ int spread(struct trees *specs,int row,int col,int size,char forest[][size]){
 			flag = 1;
 		}
 		neighborsBurn+=1;
-	}else if(forest[i+1][j+1] == '.' && i+1 < size-1  && j+1 < size-1){
+	}else if(forest[i+1][j+1] == '_' && i+1 < size-1  && j+1 < size-1){
 		neighborsBurn+=1;
-	}else if(forest[i+1][j] == '.' && i+1 < size-1){//wind coming from the east
+	}else if(forest[i+1][j] == '_' && i+1 < size-1){//wind coming from the east
 		if(direction == 'E'){
 			for(int k = 0; k < speed && (j-speed) > size -1;k++){
-				if(forest[i][j-speed] == '.'){
+				if(forest[i][j-speed] == '_'){
 					neighborsBurn+=1;
 					windN += 1;
 				}
@@ -135,12 +135,12 @@ int spread(struct trees *specs,int row,int col,int size,char forest[][size]){
 	
 	if(flag == 1 && (specs->windSpeed) > 0){
 		pnBurn = (neighbors+neighborsBurn > 0) ? (double)neighborsBurn/(neighbors+neighborsBurn) : 0;
-		pnBurn += ( windN/(specs->windSpeed) );
+		pnBurn += (pnBurn*(windN/(specs->windSpeed)) );
 	}else{
 		pnBurn = (neighbors+neighborsBurn > 0) ? (double)neighborsBurn/(neighbors+neighborsBurn) : 0;
 	}
 	
-	if(pnBurn > 0.25 || forest[row][col] == '.'){
+	if(pnBurn > 0.25 || forest[row][col] == '_'){
 		percent = (double)rand()/RAND_MAX;
 		if(percent < ((double)specs->pFire/100)){
 			result = 0;		
@@ -159,9 +159,9 @@ void applySpread(struct trees *specs,int size,char forest[][size]){
 			if(spread(specs,i,j,size,forestCopy) == 0){
 				switch(forest[i][j]){
 					case 'Y':
-						forest[i][j] = '.';
+						forest[i][j] = '_';
 						break;
-					case '.':
+					case '_':
 						forest[i][j] = ' ';
 						break;
 				}
@@ -201,7 +201,7 @@ void randomFill(struct trees *specs,int size,char forest[][size]){
 		col = rand();
 		col %= size;
 		if(forest[row][col] == 'Y'){				
-			forest[row][col] = '.';
+			forest[row][col] = '_';
 		}else{
 			i--;
 		}
@@ -209,7 +209,7 @@ void randomFill(struct trees *specs,int size,char forest[][size]){
 	//all non-tree,and non-burning tree cells are empty
 	for(int i = 0; i < size; i++){
 		for(int j = 0; j < size; j++){
-			if(forest[i][j] != 'Y' && forest[i][j] != '.')
+			if(forest[i][j] != 'Y' && forest[i][j] != '_')
 				forest[i][j] = ' ';
 		}
 	}
@@ -292,7 +292,7 @@ int checkForFires(int size,char forest[][size]){
 	int check = -1;
 	for(int i = 0; i < size; i++){
 		for(int j =0; j < size;j++){
-			if(forest[i][j] == '.')
+			if(forest[i][j] == '_')
 				check = 0;
 		}
 	}
@@ -313,7 +313,7 @@ void simulation(struct trees *specs,int size,char forest[][size]){
 	}else{
 		int count = 0;
 		printf("\ngeneration: %d\n",count);
-		while(count < specs->count){
+		while(count < specs->count && checkForFires(size,forest) == 0){
 			applySpread(specs,size,forest);
 			count+=1;
 			printf("generation: %d\n",count);

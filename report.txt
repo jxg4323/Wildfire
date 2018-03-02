@@ -31,7 +31,11 @@ If you implemented extra credit or special, describe your results here.
 
 	My results for the wind speed and direction were the greater the wind speed the 
 	more likely it was that tree burned so as a result the genreations of trees decreased
-	for all cases when wind was applied.
+	for all cases when wind was applied. With the little time I had left I wrote an
+	extremely basic bash script which runs the code with and without wind and outputs them
+	in three different files. What the script shows that basing random numbers on time will
+	be very effective when time has a greater difference that being given by the automation of
+	the bash script.
 
 ============= GENERAL PROJECT FEEDBACK ==============
 
